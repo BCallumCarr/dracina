@@ -1,37 +1,49 @@
-# Reimagined Harry Potter Series
+# Harry Potter and the Girl with Green Eyes
 
-Each chapter file must start with `# Chapter N: Title`. Scene breaks are a lone `***` line.
+<img width="478" height="238" alt="Dracina Malfoy" src="https://github.com/user-attachments/assets/d43694e5-3d1c-46c4-b59a-4ec3b9feeb24" />
 
-## Build (local)
+Key points on what makes this rewritten series different to others:
 
-One-time tool install (pandoc + tectonic into `.tools/`, no Homebrew):
+- Dracina is a rich, deep character with complex motives (not just the bully Draco in female form, or a mix between Hermione and Draco)
+- Harry is more broken, darker, dangerous, vengeful 
+- Slytherin/Crabbe/Goyle/Lucius etc. are all less "comically bad/bullies/villainous" and are more substantial
+
+Any and all feedback welcome - maybe we can open source a phenomenal story here
+
+## Read it
+
+Download the latest PDF, EPUB or DOCX from [Releases](../../releases/tag/latest). English, Russian, Spanish and Chinese are available for first two chapters, we can update if necessary.
+
+## Join in
+
+Open an [issue](../../issues/new) to talk, or a pull request to put forward a change. See [CONTRIBUTING](CONTRIBUTING.md).
+
+## Fork your own and build it yourself
+
+Chapters live in `books/<book>/chapters/`. Each chapter file starts with `# Chapter N: Title`. A scene break is a single `***` line.
+
+Install pandoc and tectonic into `.tools/` once (no Homebrew):
 
 ```bash
 bash scripts/bootstrap_tools.sh
 ```
 
-Build all four formats:
+Build every book in every format into `output/`:
 
 ```bash
 python3 scripts/build_book.py
 ```
 
-Products land in `output/`:
-- `Dracina-Book1.docx`
-- `Dracina-Book1.epub`
-- `Dracina-Book1.pdf`
-- `Dracina-Book1-ElevenReader.epub`
-
-Names never change, so re-uploading to a shared Proton folder replaces the file behind links already posted.
-
-Tests:
+Run the tests:
 
 ```bash
-python3 -m unittest discover -s tests -v
+PATH="$PWD/.tools/pandoc/bin:$PWD/.tools/tectonic:$PATH" python3 -m unittest discover -s tests -v
 ```
 
 ## CI
 
-`.github/workflows/publish-books.yml` runs the same script on push to `main` when book/build paths change, on `workflow_dispatch`, and on `book*` tags. Artifacts upload for 90 days. Tags also attach the files to a GitHub Release.
+`.github/workflows/publish-books.yml` builds on every push to `main` that touches books or build files. It runs on `book*` tags and by hand too. Each build replaces the [latest release](../../releases/tag/latest).
 
-Do not create the remote until the local build is proven.
+## Licence
+
+Story text is CC BY-NC-SA 4.0. Code is MIT. See [LICENSE](LICENSE). Harry Potter belongs to J. K. Rowling. This is non-profit fanfiction.
