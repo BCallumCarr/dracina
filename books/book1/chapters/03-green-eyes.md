@@ -28,7 +28,7 @@ The path had opened without warning onto the pebbled shore of a vast black lake.
 
 Harry realised there were no oars. The boats simply slid away from the shore over water as flat and dark as a mirror. Everyone was in awe gazing up at the castle, which seemed to grow taller as they drew near the cliff beneath it. Up close, the castle structure was patched and uneven, as though it had been added to for hundreds of years.
 
-‘Heads down!’ Hagrid roared, as the leading boats reached the rock. They ducked, and the boats passed through a hanging curtain of ivy into a wide opening that it had concealed. A dark tunnel carried them on, apparently right under the castle itself, and let them out at last in an underground harbour where they scrambled ashore over pebbles and wet rock. Torches hissed in brackets along the walls, lighting little more than the water, <squid> which Harry could have sworn bulged and settled as if something had moved.
+‘Heads down!’ Hagrid roared, as the leading boats reached the rock. They ducked, and the boats passed through a hanging curtain of ivy into a wide opening that it had concealed. A dark tunnel carried them on, apparently right under the castle itself, and let them out at last in an underground harbour where they scrambled ashore over pebbles and wet rock. Torches hissed in brackets along the walls, lighting little more than the water, which Harry could have sworn bulged and settled as if something had moved.
 
 ‘Oi, you! This yer toad?’ said Hagrid, who was looking over the boats as they emptied.
 
