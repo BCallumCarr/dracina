@@ -4,6 +4,8 @@
 
 <img width="565" height="245" alt="image" src="https://github.com/user-attachments/assets/989f601e-ce6a-4bc0-91a1-310f7f0dbeed" />
 
+---
+
 Key points on what makes this rewritten series different to others:
 
 - Dracina is a rich, deep character with complex motives (not just the bully Draco in female form, or a mix between Hermione and Draco)
