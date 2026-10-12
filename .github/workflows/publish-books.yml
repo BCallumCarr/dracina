@@ -1,0 +1,96 @@
+name: Publish books
+
+on:
+  push:
+    branches: [main]
+    tags: ["book*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-books
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decide whether to build
+        id: decide
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.ref_type }}" = "tag" ]; then
+            echo "build=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "build=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if git diff --name-only "$BEFORE" "${{ github.sha }}" | grep -E '^(books/|scripts/|styles/|\.github/workflows/publish-books\.yml)'; then
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "build=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install pandoc and tectonic
+        if: steps.decide.outputs.build == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash scripts/bootstrap_tools.sh
+          echo "$GITHUB_WORKSPACE/.tools/pandoc/bin" >> "$GITHUB_PATH"
+          echo "$GITHUB_WORKSPACE/.tools/tectonic" >> "$GITHUB_PATH"
+
+      - name: Test
+        if: steps.decide.outputs.build == 'true'
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Build books
+        if: steps.decide.outputs.build == 'true'
+        run: python3 scripts/build_book.py --out output
+
+      - name: Bundle all books into one zip
+        if: steps.decide.outputs.build == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd output
+          zip -q ../all-books.zip ./*
+          mv ../all-books.zip Dracina-all.zip
+
+      - name: Upload artifacts
+        if: steps.decide.outputs.build == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: books-${{ github.sha }}
+          path: output/*
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Attach release assets
+        if: steps.decide.outputs.build == 'true' && startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: output/*
+
+      - name: Publish rolling latest release
+        if: steps.decide.outputs.build == 'true' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view latest >/dev/null 2>&1; then
+            gh release delete latest --yes --cleanup-tag
+          fi
+          gh release create latest output/* --prerelease --target "$GITHUB_SHA" \
+            --title "Latest build" --notes "Built from $GITHUB_SHA"

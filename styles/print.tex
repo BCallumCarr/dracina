@@ -1,0 +1,30 @@
+\usepackage[oldstyle]{ebgaramond}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage[titles]{tocloft}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\frenchspacing
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{titlepage}\centering
+    \vspace*{0.25\textheight}
+    {\fontsize{20}{26}\selectfont\scshape\@title\par}
+    \vspace{1.6em}{\color{gray!50}\rule{0.25\textwidth}{0.4pt}}\par\vspace{1.6em}
+    {\large\@author\par}
+  \end{titlepage}}
+\fancypagestyle{main}{%
+  \fancyhf{}%
+  \fancyhead[C]{\footnotesize\color{gray}\addfontfeatures{LetterSpace=8}\MakeUppercase{\@title}}%
+  \fancyfoot[C]{\small\thepage}%
+  \renewcommand{\headrulewidth}{0pt}}
+\makeatother
+\titleformat{\chapter}[block]{\centering\fontsize{22}{26}\selectfont}{}{0pt}{}
+\titlespacing*{\chapter}{0pt}{60pt}{40pt}
+\pagestyle{empty}
+\assignpagestyle{\chapter}{empty}
+\appto\mainmatter{\pagestyle{main}\assignpagestyle{\chapter}{main}}
+\cftpagenumbersoff{chapter}
+\renewcommand{\cftchapfont}{\normalfont}
+\setlength{\cftbeforechapskip}{0.35em}

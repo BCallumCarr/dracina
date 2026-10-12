@@ -1,0 +1,8 @@
+documentclass: book
+classoption: [oneside, openany]
+indent: true
+fontsize: 12pt
+linestretch: 1.05
+geometry: [paperwidth=5.5in, paperheight=8.5in, top=0.83in, bottom=0.75in, inner=0.76in, outer=0.71in, headsep=0.35in]
+toc: true
+toc-depth: 0
