@@ -1,5 +1,6 @@
 {
   // CI moves the "latest" tag on every build; pulling tags then fails with "would clobber existing tag".
   "git.pullTags": false,
-  "harper.dialect": "British"
+  "harper.dialect": "British",
+  "files.autoSave": "afterDelay"
 }
