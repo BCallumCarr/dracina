@@ -165,7 +165,7 @@ Millicent Bulstrode went to Slytherin. Harry studied the table that received her
 
 ‘SLYTHERIN!’ came quickly and Crabbe sauntered off to the table to sit next to Millicent.
 
-He was feeling properly sick now. He remembered games lessons at his old school, and how he had always been picked last. He hadn’t been bad at games. Nobody had wanted Dudley to think they liked him.
+Harry was feeling properly sick now. He remembered games lessons at his old school, and how he had always been picked last. He hadn’t been bad at games. Nobody had wanted Dudley to think they liked him.
 
 ‘Finch-Fletchley, Justin!’
 
@@ -361,4 +361,4 @@ Harry meant to ask whether Ron had tried the treacle tart, but he was asleep bef
 
 Perhaps he had eaten rather too much, for he had a very peculiar dream. He was wearing Professor Quirrell’s turban, and it kept talking to him, telling him he must move to Slytherin at once, because that was his destiny. Harry told the turban he did not want to be in Slytherin. It grew heavier and heavier. He tried to drag it off, and it tightened until it hurt. And there was Malfoy, with her nose in the air, laughing at him as he struggled. Then Malfoy became the hook-nosed teacher, Snape, and Snape’s laugh turned high and cold. There was a burst of green light, and Harry woke, sweating and shaking.
 
-He rolled over and slept again. When he woke next morning the dream had gone, all except a pair of green eyes, watching him.
+He rolled over and slept again. When he woke next morning the dream had gone, all of it, except for a pair of green eyes.
