@@ -1,6 +1,8 @@
+<img width="478" height="238" alt="Dracina Malfoy" src="https://github.com/user-attachments/assets/d43694e5-3d1c-46c4-b59a-4ec3b9feeb24" />
+
 # Harry Potter and the Girl with Green Eyes
 
-<img width="478" height="238" alt="Dracina Malfoy" src="https://github.com/user-attachments/assets/d43694e5-3d1c-46c4-b59a-4ec3b9feeb24" />
+<img width="565" height="245" alt="image" src="https://github.com/user-attachments/assets/989f601e-ce6a-4bc0-91a1-310f7f0dbeed" />
 
 Key points on what makes this rewritten series different to others:
 
