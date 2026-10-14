@@ -16,6 +16,8 @@ from pathlib import Path
 CHAPTER_HEADING = re.compile(r"^# [^\d\n]*\d+[^:：\n]*[:：]\s*\S.*$")
 CHAPTER_FILE = re.compile(r"^\d{2}-.+\.md$")
 SCENE_BREAK = re.compile(r"^(?:\*\*\*|\* \* \*|---)\s*$")
+# Draft notes and spoilers live in HTML comments; EPUBs would otherwise ship them.
+HTML_COMMENT = re.compile(r"[ \t]*<!--.*?-->", re.S)
 STEM_OK = re.compile(r"^[A-Za-z0-9._-]+$")
 REQUIRED_META = ("stem", "title", "author", "language", "rights", "disclaimer")
 DEFAULT_DISCLAIMER_TITLE = "Fanfiction Disclaimer"
@@ -94,14 +96,19 @@ def validate_chapter(path: Path, text: str) -> None:
 
 
 def rewrite_scene_breaks(text: str, mode: str) -> str:
-    # Raw HTML fences stop pandoc from turning "* * *" into nested lists.
+    # Raw fences stop pandoc from turning "* * *" into nested lists. Each writer
+    # keeps only its own format, so PDF and DOCX need their own fence.
     if mode == "reader":
-        inner = '<p class="scene-gap">* * *</p>'
+        repl = (
+            '```{=html}\n<p class="scene-gap">* * *</p>\n```\n\n'
+            "```{=latex}\n\\begin{center}* * *\\end{center}\n```\n\n"
+            "```{=openxml}\n<w:p><w:pPr><w:jc w:val=\"center\"/></w:pPr>"
+            "<w:r><w:t>* * *</w:t></w:r></w:p>\n```"
+        )
     elif mode == "elevenreader":
-        inner = '<p class="scene-gap"></p>'
+        repl = '```{=html}\n<p class="scene-gap"></p>\n```'
     else:
         raise BuildError(f"unknown scene mode {mode!r}")
-    repl = "```{=html}\n" + inner + "\n```"
     out_lines = []
     for line in text.splitlines():
         if SCENE_BREAK.match(line):
@@ -196,6 +203,7 @@ def compose_markdown(
         title = meta.get("disclaimer_title", DEFAULT_DISCLAIMER_TITLE)
         parts += [f"# {title}", "", meta["disclaimer"].rstrip(), ""]
     for text in chapter_texts:
+        text = HTML_COMMENT.sub("", text)
         parts.append(rewrite_scene_breaks(text.rstrip() + "\n", mode=mode).rstrip())
         parts.append("")
     return "\n".join(parts).rstrip() + "\n"

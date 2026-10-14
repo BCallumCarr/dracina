@@ -100,6 +100,12 @@ class SceneBreakTests(unittest.TestCase):
         self.assertIn("{=html}", out)
         self.assertNotIn("***\n", out)
 
+    def test_reader_mode_break_survives_print_formats(self):
+        bb = load_build_book()
+        out = bb.rewrite_scene_breaks("A\n\n---\n\nB\n", mode="reader")
+        self.assertIn("{=latex}", out)
+        self.assertIn("{=openxml}", out)
+
     def test_elevenreader_mode_uses_empty_paragraph(self):
         bb = load_build_book()
         out = bb.rewrite_scene_breaks("A\n\n* * *\n\nB\n", mode="elevenreader")
@@ -126,6 +132,18 @@ class ComposeMarkdownTests(unittest.TestCase):
         meta = {"disclaimer": "Text.", "disclaimer_title": "Отказ от прав"}
         out = bb.compose_markdown(meta, ["# Глава 1: Один\n"], mode="reader")
         self.assertTrue(out.startswith("# Отказ от прав\n"))
+
+    def test_html_comments_never_reach_output(self):
+        bb = load_build_book()
+        chapter = (
+            "# Chapter 1: One\n\n<!-- beats\n1. Spoiler.\n-->\n\n"
+            "It was him. <!-- xxx: note -->\n\n<!-- cut (why): Old line. -->\n"
+        )
+        out = bb.compose_markdown({}, [chapter], mode="reader", disclaimer=False)
+        self.assertNotIn("<!--", out)
+        self.assertNotIn("Spoiler", out)
+        self.assertNotIn("Old line", out)
+        self.assertIn("It was him.", out)
 
 
 class MetadataFileTests(unittest.TestCase):
@@ -273,6 +291,7 @@ class BuildBookIntegrationTests(unittest.TestCase):
             with zipfile.ZipFile(docx) as zf:
                 xml = zf.read("word/document.xml")
             self.assertIn(b"Scaffold Sample", xml)
+            self.assertIn(b"* * *", xml)
 
 
 if __name__ == "__main__":
