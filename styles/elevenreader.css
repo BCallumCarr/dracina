@@ -34,3 +34,6 @@ a {
 .contents li {
   margin: 0.5em 0;
 }
+span.smallcaps {
+  font-variant: small-caps;
+}
