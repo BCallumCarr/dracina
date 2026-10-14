@@ -446,9 +446,9 @@ Even Neville scraped through, his Herbology mark making up for his terrible Poti
 
 Hagrid took them down to the fleet of little boats that sailed across the lake, and then they were on the Hogwarts Express, talking and laughing as the countryside outside went greener and tidier, and eating Bertie Bott’s Every-Flavour Beans as the train tore past Muggle towns.
 
-‘Grass,’ said Ron, chewing. ‘That’s definitely grass.’
+Sawdust,’ said Ron, struggling to chew. ‘That’s definitely sawdust.’
 
-‘Give me one,’ said Hermione. She took a green one, considered it, and put it in her mouth, and her face went very still. ‘Sprouts,’ she said.
+‘Give me one,’ said Hermione. She took a green one, considered it, and put it in her mouth, and her face went very still. ‘Brussle sprouts,’ she said.
 
 Harry laughed, and for a while, in the hot compartment with the sun coming in and Ron’s feet up on the seat, he forgot where the train was going.
 

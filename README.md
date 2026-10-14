@@ -18,7 +18,7 @@ Any and all feedback welcome - maybe we can open source a phenomenal story here
 
 ## Read it
 
-Download the latest PDF, EPUB or DOCX from [Releases](../../releases/tag/latest), in English, Russian, Spanish or Chinese.
+Download the latest PDF, EPUB or DOCX from [Releases](../../releases/tag/latest), in English (Russian, Spanish and Chinese may lag a few chapters).
 
 ## Join in
 

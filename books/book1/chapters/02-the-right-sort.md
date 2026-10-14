@@ -242,4 +242,4 @@ Harry glanced out of the window. The light was fading. Mountains and forests sto
 
 'Praying she doesn't end up in the same house as us,' said Ron.
 
-Harry realised he could be speaking about Hermione or Malfoy, but before he could ask, the students in their black robes were bustling out of the train into the cold night air.
+Harry realised he could be speaking about Hermione or Malfoy, but before he could ask, the students in their black robes were bustling through the corridor  the train.
