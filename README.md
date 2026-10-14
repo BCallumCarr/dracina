@@ -2,6 +2,8 @@
 
 # Harry Potter and the Girl with Green Eyes
 
+A fanfiction series. Book 1: *Harry Potter and the Mirror of Erised*.
+
 <img width="565" height="245" alt="image" src="https://github.com/user-attachments/assets/989f601e-ce6a-4bc0-91a1-310f7f0dbeed" />
 
 ---
@@ -16,7 +18,7 @@ Any and all feedback welcome - maybe we can open source a phenomenal story here
 
 ## Read it
 
-Download the latest PDF, EPUB or DOCX from [Releases](../../releases/tag/latest). English, Russian, Spanish and Chinese are available for first two chapters, we can update if necessary.
+Download the latest PDF, EPUB or DOCX from [Releases](../../releases/tag/latest), in English, Russian, Spanish or Chinese.
 
 ## Join in
 
@@ -24,7 +26,7 @@ Open an [issue](../../issues/new) to talk, or a pull request to put forward a ch
 
 ## Fork your own and build it yourself
 
-Chapters live in `books/<book>/chapters/`. Each chapter file starts with `# Chapter N: Title`. A scene break is a single `***` line.
+Chapters live in `books/<book>/chapters/`. Each chapter file starts with `# Chapter N: Title`. A scene break is a single `***` or `---` line.
 
 Install pandoc and tectonic into `.tools/` once (no Homebrew):
 
